@@ -60,6 +60,8 @@ awk '$6 == "chr1" && $8 <= 155192868 && $9 >= 155186123' "${outdir}/${outdir}_${
 
 # Extracting the region of interest from the contigs
 while read -r i start end; do
+  # Adjust start to be 1-based
+  start=$((start + 1)) #this is adjusting for if the contig coordinate starts on zero
   samtools faidx "$assembly" "${i}:${start}-${end}" > "${outdir}/${i}_petarlocus.fa"
 done < "${outdir}/contigs_names_petar_region_${outdir}_${rn}_155186123-155192868.txt"
 
