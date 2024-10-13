@@ -1,12 +1,15 @@
 # Assembly_Visualizing_and_Analysis
 For these scripts, I am mainly visualizing the draft assembly as dot-plots against other assemblies. It is useful to have an idea of how big are your contigs, the coverage you have, or if you are interested in seeing how a specific part of your assembly looks like.
 
+
 DotPlots.sh : If you wish to create dotplots against a reference genome for the entire assembly or maybe just one chromosome. 
 Example:
 
 
 <img width="613" alt="image" src="https://github.com/user-attachments/assets/26acdcd8-bfa9-4abf-8a5e-ce404a50c4c7">
 
+
+dotplots_diploid.sh :  If you wish to create dotplots against a reference genome for the entire assembly or maybe just one chromosome, but optimized for two haplotypes.
 
 dotplots_hap1_hap2_targetregion.sh : this is for optimizing dotplots for regions of interest. It was specifically created to look at the amylase gene copies (SVs) in human genomes. But can be used for any region of interest. 
 Example:
