@@ -21,7 +21,7 @@
 
 ######Defining variables
 Ref="/projects/academic/omergokc/hg38.fa" #Reference genome to generate paf file
-Ref_cut="/projects/academic/omergokc/Luane/HG01972/dotplots/hg38_103570000-103760000.fa" #Fasta file with the region of the genome you're aiming to align to
+Ref_cut="/projects/academic/omergokc/Luane/amy_hap/hg38_103570000-103760000.fa" #Fasta file with the region of the genome you're aiming to align to
 assembly_hap1="/projects/academic/omergokc/Luane/HG01946/TGS-GapCloser/hifiasm_haploid/hap1/HG1946_hap1.scaff_seqs"
 assembly_alt="/projects/academic/omergokc/Luane/HG01946/TGS-GapCloser/hifiasm_haploid/alternative/"
 
