@@ -128,7 +128,7 @@ cat *_alt_nucmer.fa > allcontigs_amylocus_alt_nucmer.fa
 
 cat *_nucmer.fa > allcontigs_amylocus_nucmer.fa
 
-nucmer  --prefix amylocus_${id}_haploid_nucmer $Ref_cut allcontigs_amylocus_haploid_nucmer.fa
+nucmer  --prefix amylocus_${id}_haploid_nucmer $Ref_cut allcontigs_amylocus_nucmer.fa
 
 delta-filter -q -l 10000 amylocus_${id}_haploid_nucmer.delta > amylocus_${id}_haploid_nucmer.filter
 
