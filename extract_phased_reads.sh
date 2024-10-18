@@ -55,25 +55,8 @@ awk 'NR==FNR {contigs[$1]; next}
 #get rid of the contig names that are in each line with "S"
 cut -f5 selected_contigs_info_no_seq.gfa | grep -v "^S" > contigs_chr1_103570000-103760000_hap${n}_${id}_info_no_seq_onlyreads.txt
 
-#get the read name, start, and end in one file from the gfa file you just created
-awk -F'[_:]' '{
-    split($0, parts, /[_:]/)
-    read_name = parts[1]
-    for(i=1;i<=NF;i++) {
-        if($i ~ /sliding/) {
-            split($(i+1), coords, "-")
-            start = coords[1]
-            end = coords[2]
-            print read_name, start, end
-            break
-        }
-    }
-}' OFS='\t' contigs_chr1_103570000-103760000_hap${n}_${id}_info_no_seq_onlyreads.txt > read_start_end_contigs_chr1_103570000-103760000_hap${n}_${id}.tsv
-
-#Now I need to extract the reads
-
 #Getting the names of the reads, sorting them and getting only unique read names.
-cut -f1 read_start_end_contigs_chr1_103570000-103760000_hap${n}_${id}.tsv | sort | uniq > read_names_contigs_chr1_103570000-103760000_hap${n}_${id}_uniq.txt
+cut -f1 contigs_chr1_103570000-103760000_hap${n}_${id}_info_no_seq_onlyreads.txt | sort | uniq > read_names_contigs_chr1_103570000-103760000_hap${n}_${id}_uniq.txt
 
 #doing the same thing for the contigs
 cat contigs_chr1_103570000-103760000_hap${n}_${id}_names.txt | sort | uniq > contigs_chr1_103570000-103760000_hap${n}_${id}_names_uniq.txt
@@ -137,25 +120,8 @@ awk 'NR==FNR {contigs[$1]; next}
 #get rid of the contig names that are in each line with "S"
 cut -f5 selected_contigs_info_no_seq.gfa | grep -v "^S" > contigs_chr1_103570000-103760000_hap${n}_${id}_info_no_seq_onlyreads.txt
 
-#get the read name, start, and end in one file from the gfa file you just created
-awk -F'[_:]' '{
-    split($0, parts, /[_:]/)
-    read_name = parts[1]
-    for(i=1;i<=NF;i++) {
-        if($i ~ /sliding/) {
-            split($(i+1), coords, "-")
-            start = coords[1]
-            end = coords[2]
-            print read_name, start, end
-            break
-        }
-    }
-}' OFS='\t' contigs_chr1_103570000-103760000_hap${n}_${id}_info_no_seq_onlyreads.txt > read_start_end_contigs_chr1_103570000-103760000_hap${n}_${id}.tsv
-
-#Now I need to extract the reads
-
 #Getting the names of the reads, sorting them and getting only unique read names.
-cut -f1 read_start_end_contigs_chr1_103570000-103760000_hap${n}_${id}.tsv | sort | uniq > read_names_contigs_chr1_103570000-103760000_hap${n}_${id}_uniq.txt
+cut -f1 contigs_chr1_103570000-103760000_hap${n}_${id}_info_no_seq_onlyreads.txt | sort | uniq > read_names_contigs_chr1_103570000-103760000_hap${n}_${id}_uniq.txt
 
 #doing the same thing for the contigs
 cat contigs_chr1_103570000-103760000_hap${n}_${id}_names.txt | sort | uniq > contigs_chr1_103570000-103760000_hap${n}_${id}_names_uniq.txt
